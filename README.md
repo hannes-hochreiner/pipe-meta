@@ -1,16 +1,21 @@
-# template-rust
-template for Rust projects
+# PIPE-META
+A tool to generate meta-data from the data being piped through.
+In the current version, the file length and the sha256 hash are provided.
 
 ## Usage
+The program accepts one argument, which is the file to which the meta-information is written.
 
-To use this template for libraries, run the following command:
 ```bash
-cargo init --lib
+cat test_file.txt | pipe-meta --meta-file output.json | some-other-program
 ```
 
-To use this template for binaries, run the following command:
-```bash
-cargo init
+The output is a JSON file containing the file length (as usize) and the sha256 hash (as hex string).
+
+```json
+{
+  "length":534,
+  "sha256":"1a122cbd4fc9c4efc3c0eb76f2f54745492dc673a914013a43dc816151a00f9f"
+}
 ```
 
 ## License
